@@ -1,0 +1,928 @@
+body{
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#placeholder{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: small;
+}
+#LandingText{
+  font-size: xx-large;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: right;
+  color: white;
+  margin-right: 10%;
+}
+
+.NavLand{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  position: static;
+  flex-flow: row wrap;
+  border: 3px solid #000000;
+  
+}
+
+
+.NavBar{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  position: static;
+  flex-flow: row wrap;
+  border: 3px solid #000000;
+  
+}
+
+.referencia{
+  width: 17%;
+  height: fit-content;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#registro{
+  font-size: x-large;
+  color: #bcb114;
+}
+
+#navbarnegro{
+  font-size: x-large;
+  color: #000000;
+}
+
+#reglas{
+  font-size: x-large;
+  color: rgb(61, 114, 182);
+}
+
+#partida{
+  font-size: xx-large;
+  color: black;
+  text-align: center;
+  margin: auto;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#acerca{
+  font-size: x-large;
+  color: red;
+}
+
+#quienes{
+  font-size: x-large;
+  color: green;
+}
+
+header{
+    text-align: center;
+  }
+
+/* img{
+width: 50%;
+margin: auto;
+display: block;
+} */
+
+form{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+/* label{
+  margin-top: 10px;
+} */
+
+/* button{
+  margin-top: 20px;
+  background-color: #ffffff;
+  transition-duration: 0.4s;
+} */
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.reg{
+  position: absolute;
+  left: 42%;
+  /* width: 50%; */
+  text-align: center;
+  color: aliceblue;
+  border: 5px solid #000000;
+  padding: 10px;
+  /* box-shadow: 10px 10px; */
+  background-color: #004467;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#inses {
+  font-size: larger;
+}
+.reg1{
+  position: absolute;
+  left: 38%;
+  color: aliceblue;
+  /* width: 50%; */
+  text-align: center;
+  border: 5px solid #000000;
+  padding: 10px;
+  /* box-shadow: 10px 10px; */
+  background-color: #004467;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 2px;
+  border: 0px solid rgba(0, 0, 0, 0.8);
+}
+
+.grid-item {
+  width:60px; 
+  height:40px;
+  padding: 3px;
+  border: 0px solid rgba(0, 0, 0, 0);
+  text-align: center;
+}
+
+#sincuenta{
+  text-align: center;
+}
+
+#logoolimpiadas{
+  width: 26%;
+  height: 26%;
+  margin: auto;
+  display: block;
+}
+
+#minilogo{
+  height: 15%;
+  width: 15%;
+}
+
+.crearpartida{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 2%;
+  justify-content: space-between;
+  margin: 1%;
+
+}
+
+.boxpartida{
+  height: 350px;
+  width: 350px;
+  /* background-color: #01395c; */
+  background-color: #004467;
+  text-align: center;
+  border-radius: 2%;
+}
+
+.misaccesorios{
+  display: grid;
+  grid-template-rows: auto auto auto;
+  justify-content: space-between;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#accesorios{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+#delapartida{
+  color: aliceblue;
+  font-size: large;
+  font-family: fantasy;
+}
+
+#atriperso{
+  height: 100%;
+  width: 62%;
+}
+
+#delapartida1{
+  color: aliceblue;
+  font-size: medium;
+  font-family: fantasy;
+}
+
+#delapartida2{
+  color: aliceblue;
+  font-size: small;
+  font-family: fantasy;
+}
+
+.boton{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#botonempezar{
+  font-size: x-large;
+  font-family: fantasy;
+}
+
+#amigos{
+  height: 300px;
+  background-color: grey;
+  overflow: scroll;
+  grid: 3%;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+#section-preguntas {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+  width: 100%;
+  flex-flow: column wrap;
+  height: 100%;
+}
+
+.preguntas div {
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 7px 7px 10px rgb(0, 0, 0);
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: justify;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: larger;
+}
+
+.preguntas span{
+  color: green;
+  font-size: large;
+}
+
+#Uno,
+#Dos,
+#Tres,
+#Cuatro,
+#Cinco {
+  display: None;
+}
+
+#titulopregfrec{
+  margin-top: 10px;
+}
+
+#pregfrec{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color:white;
+  font-size: xx-large;
+}
+
+#contraseña{
+  font-size: small;
+  height: min-content;
+}
+
+/* PERFIL */
+
+.miperfil{
+  padding: 3%;
+}
+
+.imgperfil{
+  height: 40%;
+  width: 40%;
+}
+
+.perfil{
+  justify-content: space-between;
+  margin: 1%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.boxperfil{
+  /* height: 500px; */
+  width: 600px;
+  background-color: #004467;
+  text-align: center;
+  border-radius: 2%;
+}
+
+.infoperfil{
+  color: aliceblue;
+  font-size: large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: underline;
+}
+
+#tusatributos{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: aliceblue;
+  text-decoration: underline;
+}
+
+.atributoperfil{
+  display: grid;
+  grid-template-rows: auto auto auto;
+}
+
+#letraatr{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: aliceblue;
+  width: 150px;
+}
+
+.atributos-perfil{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+#barra{
+  justify-items: auto;
+  margin-top: 15px;
+}
+
+
+.NosotrosHeader {
+  background-color: #004467;
+  margin: auto;
+  margin-top: 10px;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  box-shadow: 3px 3px; 
+}
+
+.NosotrosHeader p1 {
+  color: #fff;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: xx-large;
+}
+
+.NosotrosFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.NosotrosFlex div {
+  border: solid;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: #004467;
+  box-shadow: 5px 5px;
+}
+.us{
+  justify-content: center;
+}
+
+.NosotrosFlex div h2 {
+  text-align: center;
+  color: #fff;
+  font-weight: normal;
+  justify-content: center;
+  font-size: xx-large;
+}
+
+.NosotrosFlex div h3 {
+  text-align: center;
+  color: #fff;
+  font-weight: normal;
+}
+
+.NosotrosFlex div h4 {
+  text-align: center;
+  color: #fff;
+  font-weight: normal;
+}
+
+.flex-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.student-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 200px;
+  height: 400px;
+}
+
+.student-box img{
+  width: 150px;
+  height: 150px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: #000000;
+}
+
+
+/* ABOUT */
+
+
+.AboutHeader {
+  background-color: #004467;
+  margin: auto;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  box-shadow: 3px 3px; 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+}
+
+.AboutHeader p {
+  color: #fff;
+  font-size: xx-large;
+}
+
+.AboutFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.AboutFlex div {
+  border: solid;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: #004467;
+  box-shadow: 5px 5px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.AboutFlex div img {
+  display: block;
+  width: 80px;
+  height: 50px;
+  padding-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.AboutFlex div p2 {
+  text-align: center;
+  color: #fff;
+  font-size: x-large;
+  
+
+}
+
+.AboutFlex div p4 {
+  text-align: center;
+  font-size: medium;
+  color: #fff;
+}
+
+.AboutFlex div label {
+  font-size: 17px;
+  text-align: center;
+  color: #fff;
+}
+
+
+
+/* Medallas */
+
+
+.MedallasHeader {
+  background-color: #004467;
+  margin: auto;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  box-shadow: 3px 3px; 
+}
+
+.MedallasHeader h1 {
+  color: #fff;
+}
+
+.MedallasFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.MedallasFlex div {
+  display: flex;
+  flex-direction: row;
+  border: solid;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: #004467;
+  box-shadow: 5px 5px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+}
+
+.MedallasFlex img {
+  display: flex;
+  width: 50px;
+  height: 90px;
+  align-self: center;
+}
+
+.MedallasFlex h3 {
+  display: flex;
+  align-self: center;
+  width: 35px;
+  color: #fff;
+}
+
+
+
+/* TIENDA */
+
+.TiendaHeader {
+  background-color: #004467;
+  margin: auto;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  box-shadow: 3px 3px;
+}
+
+.TiendaHeader h1 {
+  color: #fff;
+}
+
+.TiendaGrid {
+  display: grid;
+  /* grid-template-columns: repeat(3, 200px [col-start]);
+  grid-template-rows: repeat(3, 200px [col-start]); */
+  grid: 250px 250px / auto-flow 250px;
+  /* grid-auto-columns: 60px;
+  grid-auto-rows: 60px; */
+  justify-items: stretch;
+  justify-content: center;
+  align-content: center;
+  background-color: #004467;
+  margin: auto;
+  width: 90%;
+  height: 80%;
+  border: solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px;
+  gap: 1px;
+  
+}
+
+.TiendaMoneyFilter {
+  background-color: #004467;
+  margin: auto;
+  width: 90%;
+  height: 50px;
+  border: solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.TiendaMoneyFilter h2 {
+  color: #fff;
+}
+
+.tienda-category-select {
+  width: 100px;
+  position: relative;
+}
+
+.tienda-category-select select{
+  background-color: #1a94d1;
+  height: 50;
+  color: #fff;
+}
+
+.tienda-item {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 250px;
+  height: 250px;
+  border: 4px solid;
+  background: #1a94d1;
+}
+
+.tienda-item img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+.tienda-item-data {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #004467;
+}
+
+.tienda-item-data label {
+  color: #fff;
+}
+
+
+.tienda-item button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+  background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+}
+
+
+.tienda-item button:active {
+  /* background-color: #3e8e41; */
+  box-shadow: 0 1px #666;
+  transform: translateY(1.5px);
+}
+
+
+/* REGLAS */
+
+.ReglasHeader {
+  background-color: #004467;
+  margin: auto;
+  width: 180px;
+  height: 50px;
+  text-align: center;
+  box-shadow: 3px 3px;
+  
+
+}
+
+.ReglasHeader p{
+  color: #fff;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: xx-large;
+  text-align: center;
+
+}
+
+.ReglasFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ReglasFlex div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: #004467;
+  box-shadow: 5px 5px;
+}
+
+.ReglasFlex div:hover {
+  background-color: #1a94d1;
+  justify-content: center;
+}
+.ReglasFlex div {
+  align-items: center;
+  text-align: center;
+}
+
+.ReglasFlex details {
+  align-self: center;
+}
+
+.ReglasFlex summary {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+  font-weight: normal;
+  font-size: x-large;
+  color: #fff;
+  list-style-image: url("../imagenes/regla.png");
+}
+
+.reglaespecifico{
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+  align-self: center;
+
+}
+
+.ReglasFlex li {
+  font-size: medium;
+  color: #fff;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+  font-weight: normal;
+  text-align: left;
+}
+
+.ReglasFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+}
+
+.ReglasFooter p{
+  font-size: x-large;
+  color: #fff;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+}
+
+.ReglasFooter img {
+  width: 120px;
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+/* JUEGO */
+
+.buttonjugar{
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  transition-duration: 0.4s;
+  margin-top: 0px;
+}
+
+.buttonjugar:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.juego{
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 1%;
+}
+
+#tablero{
+  width: 700px;
+  height: 700px;
+}
+.izq{
+  width: 700px;
+  height: 700px;
+  background-image: url("../imagenes/tablero.png");
+  background-size: cover;
+}
+
+.gridtablero{
+  width: 680px;
+  height: 700px;
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  margin-left: 10px;
+}
+
+#columna1{
+  display: grid;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+#columna2{
+  display: grid;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+#columna3{
+  display: grid;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#columna4{
+  display: grid;
+  align-items: center;
+}
+#columna5{
+  display: grid;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#columna6{
+  display: grid;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+#columna7{
+  display: grid;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+#c1h1{
+  margin-top: 27,7524px;
+}
+
+#c1h4{
+  margin-bottom: 27,7524px;
+}
+
+.hexagono{
+  width: 97,15px;
+  height: 100px;
+}
+#derecha{
+  display: grid;
+  grid-template-columns: auto;
+}
+
+#misatributos{
+  margin: 2%;
+  color: aliceblue;
+  font-size:medium;
+  font-family: fantasy;
+}
+
+#atributos{
+  height: 20%;
+  width: 98%;
+  background-color: #004467;
+  text-align: center;
+  border-radius: 2%;
+  margin-bottom: 64%;
+}
+
+.boxatributos{
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+#logoatributos{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  justify-content: space-between;
+}
+
+#numatributos{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  justify-content: space-between;
+
+}
+
+#juegoatributo{
+  color: aliceblue;
+  font-size: medium;
+  font-family: fantasy;
+  height: 18.86px;
+  width: 18.86px;
+}
+
+#turnos{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+#banderitas{
+  width: 98%;
+  height: 68%;
+}

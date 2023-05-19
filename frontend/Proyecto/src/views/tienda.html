@@ -1,0 +1,119 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles/pablo.css">
+    <title>Tienda</title>
+</head>
+<body background = "../assets/imagenes/fondostandar.jpg">
+    <div class = "NavBar">
+        <div class= "referencia">
+            <a id="registro" href="perfil.html">MI PERFIL</a>
+        </div>
+        <div class="referencia">
+            <a id="reglas" href="reglas.html">REGLAS</a>
+        </div>
+        <a id="partida" href="crearpartida.html">CREA TU PARTIDA</a>
+        <div class="referencia">
+            <a id="acerca" href="about.html">ACERCA DE</a>
+        </div>
+        <div class="referencia">
+            <a id="quienes" href="preguntas.html">PREGUNTAS FRECUENTES</a>
+        </div>
+    </div>
+
+    <div class="TiendaHeader">
+        <h1>Tienda</h1>
+    </div>
+
+    <br>
+
+    <div class="TiendaMoneyFilter">
+        
+        <h2>Saldo: 5 puntos</h2>
+        <!-- puse 5 puntos de ejemplo, habria que calcularlos con JS -->
+        
+        <div class="tienda-category-select">
+            <select>
+                <option value="0">Todos</option>
+                <option value="1">Fuerza</option>
+                <option value="2">Velocidad</option>
+                <option value="3">Equilibrio</option>
+                <option value="4">Resistencia</option>
+                <option value="5">Coordinación</option>
+                <option value="6">Inteligencia</option>
+            </select>
+        </div>
+        <!-- meterle JS para filtrar los objetos de la tienda -->
+
+    </div>
+
+    <div class="TiendaGrid">
+
+        <div class="tienda-item">
+            <img src="../assets/imagenes/tienda/gym.png" alt="">
+            <div class="tienda-item-data">
+                <label>Gym</label>
+                <label>Fuerza +1 </label>
+                <label>$: 7 puntos</label>
+                <button>Comprar</button>
+            </div>
+                
+        </div>
+
+        <div class="tienda-item">
+            <img src="../assets/imagenes/tienda/libros.png" alt="">
+            <div class="tienda-item-data">
+                <label>Libros</label>
+                <label>Inteligencia +1 </label>
+                <label>$: 6 puntos</label>
+                <button>Comprar</button>
+            </div>
+        </div>
+
+        <div class="tienda-item">
+            <img src="../assets/imagenes/tienda/redbull.png" alt="">
+            <div class="tienda-item-data">
+                <label>Redbull</label>
+                <label>Resistencia +1 </label>
+                <label>$: 7 puntos</label>
+                <button>Comprar</button>
+            </div>
+        </div>
+
+        <div class="tienda-item">
+            <img src="../assets/imagenes/tienda/ropas.png" alt="">
+            <div class="tienda-item-data">
+                <label>Ropas</label>
+                <label>Coordinación +1 </label>
+                <label>$: 6 puntos</label>
+                <button>Comprar</button>
+            </div>
+        </div>
+
+        <div class="tienda-item">
+            <img src="../assets/imagenes/tienda/valla.png" alt="">
+            <div class="tienda-item-data">
+                <label>Valla</label>
+                <label>Coordinación +2 </label>
+                <label>$: 13 puntos</label>
+                <button>Comprar</button>
+            </div>
+        </div>
+
+        <div class="tienda-item">
+            <img src="../assets/imagenes/tienda/tacos.png" alt="">
+            <div class="tienda-item-data">
+                <label>Tacos</label>
+                <label>Velocidad +1 </label>
+                <label>$: 7 puntos</label>
+                <button>Comprar</button>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

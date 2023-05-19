@@ -1,0 +1,229 @@
+
+body{
+    height: 770px;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.NavBar{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    position: static;
+    flex-flow: row wrap;
+    border: 3px solid #000000;
+}
+
+.referencia{
+    width: 17%;
+    height: fit-content;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#registro{
+    font-size: x-large;
+    color: #bcb114;
+}
+
+#reglas{
+    font-size: x-large;
+    color: rgb(61, 114, 182);
+}
+
+#partida{
+    font-size: xx-large;
+    color: black;
+    text-align: center;
+    margin: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#acerca{
+    font-size: x-large;
+    color: red;
+}
+
+#quienes{
+    font-size: x-large;
+    color: green;
+}
+
+
+
+
+
+
+
+/* Medallas */
+
+
+.MedallasHeader {
+    background-color: #004467;
+    margin: auto;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    box-shadow: 3px 3px; 
+}
+
+.MedallasHeader h1 {
+    color: #fff;
+}
+
+.MedallasFlex {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.MedallasFlex div {
+    display: flex;
+    flex-direction: row;
+    border: solid;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color: #004467;
+    box-shadow: 5px 5px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+}
+
+.MedallasFlex img {
+    display: flex;
+    width: 50px;
+    height: 90px;
+    align-self: center;
+}
+
+.MedallasFlex h3 {
+    display: flex;
+    align-self: center;
+    width: 35px;
+    color: #fff;
+}
+
+
+
+/* TIENDA */
+
+.TiendaHeader {
+    background-color: #004467;
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    box-shadow: 3px 3px;
+}
+
+.TiendaHeader h1 {
+    color: #fff;
+}
+
+.TiendaGrid {
+    display: grid;
+    /* grid-template-columns: repeat(3, 200px [col-start]);
+    grid-template-rows: repeat(3, 200px [col-start]); */
+    grid: 250px 250px / auto-flow 250px;
+    /* grid-auto-columns: 60px;
+    grid-auto-rows: 60px; */
+    justify-items: stretch;
+    justify-content: center;
+    align-content: center;
+    background-color: #004467;
+    margin: auto;
+    width: 90%;
+    height: 80%;
+    border: solid;
+    border-radius: 5px;
+    box-shadow: 5px 5px;
+    gap: 1px;
+    
+}
+
+.TiendaMoneyFilter {
+    background-color: #004467;
+    margin: auto;
+    width: 90%;
+    height: 50px;
+    border: solid;
+    border-radius: 5px;
+    box-shadow: 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.TiendaMoneyFilter h2 {
+    color: #fff;
+}
+
+.tienda-category-select {
+    width: 100px;
+    position: relative;
+}
+
+.tienda-category-select select{
+    background-color: #1a94d1;
+    height: 50;
+    color: #fff;
+}
+
+.tienda-item {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 250px;
+    height: 250px;
+    border: 4px solid;
+    background: #1a94d1;
+}
+
+.tienda-item img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
+.tienda-item-data {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #004467;
+}
+
+.tienda-item-data label {
+    color: #fff;
+}
+
+
+.tienda-item button {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+    background-origin: border-box;
+    box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+}
+
+
+.tienda-item button:active {
+    /* background-color: #3e8e41; */
+    box-shadow: 0 1px #666;
+    transform: translateY(1.5px);
+}

@@ -1,0 +1,1696 @@
+{
+	"info": {
+		"_postman_id": "c5b14168-ad12-440e-8dc4-d79550578cae",
+		"name": "Buka - API",
+		"description": "Esta documentación muestra en detalle los _endpoints_ creados en el _backend_ del proyecto \"Olympics\" del grupo Buka, para el curso Tecnologías y Aplicaciones Web (IIC2513).\n\nPara acceder a las rutas de _Matches_ y _Players_ se corre un middleware para hacer verificaciones correspondientes al acceso a los diversos endpoints.\n\nEste middleware se encuentra en **\"src/middleware/auth.js\"**\n\nEl posible error es:\n\n### Status: 401\n\nOcurre cuando la sesión no está iniciada y desea llevar a cabo una acción que lo requiere, o cuando la sesión es inválida.\n\n### .env\n\nEs necesario crear un .env que siga el siguiente formato:\n\n- DB_USER = {nombre}postgresql\n- DB_NAME = {nombre}postgresql\n- DB_PASSWORD = 12345\n- DB_HOST = localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20025861"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nickname\": \"PLAYER1\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Inicia sesión si es que en la base de datos de \\`**Players\\`** hay alguna tupla que contenga el nickname y la contraseña ingresadas en los inputs correspondientes. En este caso, crea una nueva sesión en la tabla **\\`Sessions\\`**, la cual maneja las sesiones de los usuarios."
+					},
+					"response": [
+						{
+							"name": "Status: 201 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nickname\": \"PLAYER1\",\n    \"password\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "koa.sess=eyJzZXNzaW9uaWQiOjQsInVzZXJpZCI6MTAwLCJfZXhwaXJlIjoxNjY3OTI5ODUyNzM4LCJfbWF4QWdlIjo4NjQwMDAwMH0=; path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "koa.sess.sig=VzPMBVck8hfctDSK-Infr-f1vYI; path=/"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 17:50:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXRjaGVzIjpbXSwiaWF0IjoxNjY3ODQzNDUyfQ.MtLz_RwSQoygY9iFTG1kPxSGkG7cEj6m5kOgjUuXJ1w\"\n}"
+						},
+						{
+							"name": "Status: 401 Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nickname\": \"PLAYER2\",\n    \"password\": \"password123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 20:05:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Contraseña incorrecta"
+						},
+						{
+							"name": "Status: 404 Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nickname\": \"amigazo\",\n    \"password\": \"password123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 20:04:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Usuario con ese nickname no existe"
+						}
+					]
+				},
+				{
+					"name": "Sign-Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Pablo\",\n    \"apellido\": \"Alvarado\",\n    \"nickname\": \"PLAYER10\",\n    \"email\": \"ian@gmail.com\",\n    \"hash_contrasena\": \"passsworD123\",\n    \"delegacion\": \"Corea\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						},
+						"description": "Crea una nueva instancia de **\\`Players\\`** en la base de datos. Requiere los siguientes atributos:\n\n- nombre: nombre de pila del jugador.\n- apellido: apellido de pila del jugador.\n- email: email del jugador, no puede editarse.\n- hash_contrasena: contraseña secreta del jugador, debe contener mínimo 8 caracteres y al menos 1 letra mayúscula y una letra minúscula. Esta es Hasheada con **bcrypt.**\n- delegacion: delegación favorita del jugador entre las 6 posibles (Brasil, China, Corea del Sur, Jamaica, Rusia ó Estados Unidos)."
+					},
+					"response": [
+						{
+							"name": "Status: 201 Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Pablo\",\n    \"apellido\": \"Alborán\",\n    \"nickname\": \"pablito\",\n    \"email\": \"palboran@gmail.com\",\n    \"hash_contrasena\": \"PABLOalb123\",\n    \"delegacion\": \"Brasil\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/auth/signup",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "289"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 18:31:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"nombre\": \"Pablo\",\n    \"apellido\": \"Alborán\",\n    \"nickname\": \"pablito\",\n    \"email\": \"palboran@gmail.com\",\n    \"hash_contrasena\": \"$2b$05$u.zCyE00phVGefynn2j53.9yzFQ7DECCX6a4RPTpv.2O/MDqlQNGO\",\n    \"delegacion\": \"Brasil\",\n    \"puntos\": 0,\n    \"updatedAt\": \"2022-11-07T18:31:52.473Z\",\n    \"createdAt\": \"2022-11-07T18:31:52.473Z\"\n}"
+						},
+						{
+							"name": "Status: 401 Bad Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Pablo\",\n    \"apellido\": \"Alvarado\",\n    \"nickname\": \"PABLEIN\",\n    \"email\": \"bloco@gmail.com\",\n    \"hash_contrasena\": \"malapassword\",\n    \"delegacion\": \"Corea\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/auth/signup",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 20:11:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Password no cumple formato"
+						},
+						{
+							"name": "Status: 402 Nickname in use",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Pablo\",\n    \"apellido\": \"Alvarado\",\n    \"nickname\": \"PLAYER2\",\n    \"email\": \"bloco@gmail.com\",\n    \"hash_contrasena\": \"passsworD123\",\n    \"delegacion\": \"Corea\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/auth/signup",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Payment Required",
+							"code": 402,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 20:12:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Ya Existe un jugador con ese Nickname"
+						},
+						{
+							"name": "Status: 403 Email in use",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Pablo\",\n    \"apellido\": \"Alvarado\",\n    \"nickname\": \"PLAYER10\",\n    \"email\": \"ian@gmail.com\",\n    \"hash_contrasena\": \"passsworD123\",\n    \"delegacion\": \"Corea\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/auth/signup",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 20:12:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Ya Existe un jugador con ese Email"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "PLAYER1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/auth/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Cierra la sesión del usuario, eliminando en la base de datos de la tabla \\`Sessions\\` la tupla correspondiente a la sesión actual."
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8000/auth/logout",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "koa.sess=eyJ1c2VyaWQiOjEwMCwiX2V4cGlyZSI6MTY2NzkzMjQyNTcxNCwiX21heEFnZSI6ODY0MDAwMDB9; path=/; expires=Tue, 08 Nov 2022 18:33:45 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "koa.sess.sig=GgRPpq5kD7TtNPuyGqaViJae69w; path=/; expires=Tue, 08 Nov 2022 18:33:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 18:33:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"description": "Maneja los métodos básicos de autenticación. Estos son el iniciar sesión (login), registrarse (signup) y cerrar sesión (logout)."
+		},
+		{
+			"name": "Players",
+			"item": [
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "PLAYER1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/players/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"players",
+								"profile"
+							]
+						},
+						"description": "Retorna los datos del jugador si es que hay una coincidencia con el id del jugador de la sesión actual."
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/players/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"players",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 19:07:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 100,\n    \"nombre\": \"pedro\",\n    \"apellido\": \"gonzalez\",\n    \"nickname\": \"PLAYER1\",\n    \"email\": \"ian@gmail.com\",\n    \"hash_contrasena\": \"$2a$05$T.juQHa.qJvBHXD3JDNBB.OiBcF6PaaIf.H2w8Ljac6UKtg4EhbSi\",\n    \"delegacion\": \"Brasil\",\n    \"puntos\": 0,\n    \"createdAt\": \"2022-11-07T00:07:24.520Z\",\n    \"updatedAt\": \"2022-11-07T00:07:24.520Z\",\n    \"Matches\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Profile Edit",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "PLAYER1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Fernando\",\n    \"apellido\": \"López\",\n    \"nickname\": \"PLAYER20\",\n    \"password\": \"123mal\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/players/profile/edit",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"players",
+								"profile",
+								"edit"
+							]
+						},
+						"description": "Edita los atributos del Jugador que se desean cambiar. Estos pueden ser:\n\n- Nombre\n- Apellido\n- Nickname\n- Hash_contrasena"
+					},
+					"response": [
+						{
+							"name": "Status: 201 Updated",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Fernando\",\n    \"apellido\": \"López\",\n    \"nickname\": \"Ferxxo\",\n    \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/players/profile/edit",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"players",
+										"profile",
+										"edit"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 19:15:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 100,\n    \"nombre\": \"Fernando\",\n    \"apellido\": \"López\",\n    \"nickname\": \"Ferxxo\",\n    \"email\": \"ian@gmail.com\",\n    \"hash_contrasena\": \"$2a$05$T.juQHa.qJvBHXD3JDNBB.OiBcF6PaaIf.H2w8Ljac6UKtg4EhbSi\",\n    \"delegacion\": \"Brasil\",\n    \"puntos\": 0,\n    \"createdAt\": \"2022-11-07T00:07:24.520Z\",\n    \"updatedAt\": \"2022-11-07T19:15:35.649Z\",\n    \"Matches\": []\n}"
+						},
+						{
+							"name": "Status: 401 Nickname in use",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Fernando\",\n    \"apellido\": \"López\",\n    \"nickname\": \"PLAYER3\",\n    \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/players/profile/edit",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"players",
+										"profile",
+										"edit"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 20:27:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Ya existe un usuario con ese Nickname"
+						},
+						{
+							"name": "Status: 402 Bad Password",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Fernando\",\n    \"apellido\": \"López\",\n    \"nickname\": \"PLAYER20\",\n    \"password\": \"123mal\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/players/profile/edit",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"players",
+										"profile",
+										"edit"
+									]
+								}
+							},
+							"status": "Payment Required",
+							"code": 402,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Nov 2022 20:28:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Password no cumple formato"
+						}
+					]
+				}
+			],
+			"description": "Endpoints para obtener el Jugador y sus datos de la base de datos, y para actualizar los datos de un jugador en la base de datos con PATCH."
+		},
+		{
+			"name": "Matches",
+			"item": [
+				{
+					"name": "Show Match",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "PLAYER1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/matches/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"matches",
+								""
+							]
+						},
+						"description": "Muestra la información de una Partida en la tabla **'Matches'** en la base de datos, retornando la instancia de esta y a los distintos jugadores provenientes de la tabla **'Players'.**"
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1777"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 01:32:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"match\": {\n        \"id\": 0,\n        \"turnos\": 0,\n        \"position_1\": 0,\n        \"position_2\": 0,\n        \"position_3\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.975Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.975Z\",\n        \"player_1\": 100,\n        \"player_2\": 101,\n        \"player_3\": 102,\n        \"current_player\": 100\n    },\n    \"player1\": {\n        \"id\": 100,\n        \"nombre\": \"pedro\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER1\",\n        \"email\": \"ian@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T.juQHa.qJvBHXD3JDNBB.OiBcF6PaaIf.H2w8Ljac6UKtg4EhbSi\",\n        \"delegacion\": \"Brasil\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"player2\": {\n        \"id\": 101,\n        \"nombre\": \"fernando\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER2\",\n        \"email\": \"fgonz@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$GGKYMrkTVgsJAvcwd4vAo.Et7PzLEE69si2vfERjIylTD47Rk0B0G\",\n        \"delegacion\": \"EEUU\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"player3\": {\n        \"id\": 102,\n        \"nombre\": \"nick\",\n        \"apellido\": \"valenzuela\",\n        \"nickname\": \"PLAYER3\",\n        \"email\": \"nvchorri@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T4yNX0F/CzL4GAJXMWa2HuUJckIBtCMDgkZJ5pb/Ik9IN3DxfQxKG\",\n        \"delegacion\": \"Corea\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"currentPlayer\": {\n        \"id\": 100,\n        \"nombre\": \"pedro\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER1\",\n        \"email\": \"ian@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T.juQHa.qJvBHXD3JDNBB.OiBcF6PaaIf.H2w8Ljac6UKtg4EhbSi\",\n        \"delegacion\": \"Brasil\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"tableroID\": {\n        \"id\": 0,\n        \"match_id\": 0,\n        \"casilla_id\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.969Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.969Z\"\n    },\n    \"playerStats\": {\n        \"id\": 1,\n        \"player_id\": 100,\n        \"fuerza\": 1,\n        \"velocidad\": 1,\n        \"resistencia\": 1,\n        \"coordinacion\": 1,\n        \"inteligencia\": 1,\n        \"equilibrio\": 1,\n        \"puntos_competencia\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.978Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.978Z\"\n    }\n}"
+						},
+						{
+							"name": "Status: 401 Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "21"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 01:34:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Debes iniciar sesión"
+						}
+					]
+				},
+				{
+					"name": "Info Competencia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"description": "Retorna la información de una partida en conjunto con la información de una tupla de la tabla **'Deportes',** que son las competencias que los jugadores deberán superar."
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/infocompetencia",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										"infocompetencia"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1792"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 01:35:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"match\": {\n        \"id\": 0,\n        \"turnos\": 0,\n        \"position_1\": 0,\n        \"position_2\": 0,\n        \"position_3\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.975Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.975Z\",\n        \"player_1\": 100,\n        \"player_2\": 101,\n        \"player_3\": 102,\n        \"current_player\": 100\n    },\n    \"player1\": {\n        \"id\": 100,\n        \"nombre\": \"pedro\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER1\",\n        \"email\": \"ian@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T.juQHa.qJvBHXD3JDNBB.OiBcF6PaaIf.H2w8Ljac6UKtg4EhbSi\",\n        \"delegacion\": \"Brasil\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"player2\": {\n        \"id\": 101,\n        \"nombre\": \"fernando\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER2\",\n        \"email\": \"fgonz@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$GGKYMrkTVgsJAvcwd4vAo.Et7PzLEE69si2vfERjIylTD47Rk0B0G\",\n        \"delegacion\": \"EEUU\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"player3\": {\n        \"id\": 102,\n        \"nombre\": \"nick\",\n        \"apellido\": \"valenzuela\",\n        \"nickname\": \"PLAYER3\",\n        \"email\": \"nvchorri@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T4yNX0F/CzL4GAJXMWa2HuUJckIBtCMDgkZJ5pb/Ik9IN3DxfQxKG\",\n        \"delegacion\": \"Corea\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"currentPlayer\": {\n        \"id\": 100,\n        \"nombre\": \"pedro\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER1\",\n        \"email\": \"ian@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T.juQHa.qJvBHXD3JDNBB.OiBcF6PaaIf.H2w8Ljac6UKtg4EhbSi\",\n        \"delegacion\": \"Brasil\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"tableroID\": {\n        \"id\": 0,\n        \"match_id\": 0,\n        \"casilla_id\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.969Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.969Z\"\n    },\n    \"deporte\": null,\n    \"playerStats\": {\n        \"id\": 1,\n        \"player_id\": 100,\n        \"fuerza\": 1,\n        \"velocidad\": 1,\n        \"resistencia\": 1,\n        \"coordinacion\": 1,\n        \"inteligencia\": 1,\n        \"equilibrio\": 1,\n        \"puntos_competencia\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.978Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.978Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Terminar Turno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"description": "Da por finalizado el turno del jugador actual ('Current_Player'). Retorna la instancia de **Match**."
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/terminarturno",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										"terminarturno"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "218"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 01:44:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"match\": {\n        \"id\": 0,\n        \"turnos\": 1,\n        \"position_1\": 0,\n        \"position_2\": 0,\n        \"position_3\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.975Z\",\n        \"updatedAt\": \"2022-11-08T01:44:06.234Z\",\n        \"player_1\": 100,\n        \"player_2\": 101,\n        \"player_3\": 102,\n        \"current_player\": 101\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Lanzar Dado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/matches/lanzardado",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"matches",
+								"lanzardado"
+							]
+						},
+						"description": "Lanza el dado, que puede tomar valores del 1 al 3. Actualiza la posición del jugador correspondiente en la instancia de **Match** proveniente de la tabla **'Matches'.** Retorna el valor del dado y la instancia de **Match.**"
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/lanzardado",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										"lanzardado"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "227"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 01:45:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"dado\": 1,\n    \"match\": {\n        \"id\": 0,\n        \"turnos\": 1,\n        \"position_1\": 0,\n        \"position_2\": 1,\n        \"position_3\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.975Z\",\n        \"updatedAt\": \"2022-11-08T01:45:45.515Z\",\n        \"player_1\": 100,\n        \"player_2\": 101,\n        \"player_3\": 102,\n        \"current_player\": 101\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Sacar Carta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/matches/sacarcarta",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"matches",
+								"sacarcarta"
+							]
+						},
+						"description": "Obtiene la carta sorpresa. Retorna la instancia de **'Match'** y el **ID** de la instancia de la carta sorpresa que salió al azar de la tabla **'Cartas_Sorpresa'**. Esta carta tiene algún efecto en el jugador, que puede afectar tanto de forma positiva como negativa a su avance en el tablero o a sus estadísticas."
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/sacarcarta",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										"sacarcarta"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "228"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 01:46:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"match\": {\n        \"id\": 0,\n        \"turnos\": 1,\n        \"position_1\": 0,\n        \"position_2\": 2,\n        \"position_3\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.975Z\",\n        \"updatedAt\": \"2022-11-08T01:46:47.484Z\",\n        \"player_1\": 100,\n        \"player_2\": 101,\n        \"player_3\": 102,\n        \"current_player\": 101\n    },\n    \"carta\": 2\n}"
+						}
+					]
+				},
+				{
+					"name": "Lanzar Dado Competencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/matches/lanzardadocompetencia",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"matches",
+								"lanzardadocompetencia"
+							]
+						},
+						"description": "Dado usado para competir, puede tomar valores del 1 al 6. Retorna todas las instancias involucradas en una competencia, junto al valor obtenido del dado:\n\n- Player: Instancia del jugador de **'Players'.**\n- Match: instancia de la partida de **'Matches'.**\n- Deporte: instancia de la competencia de **'Deportes'.**\n- Player_stats: Estadísticas del jugador que compite, de **'Player_stats'.**"
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/lanzardadocompetencia",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										"lanzardadocompetencia"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "996"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 02:06:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"dado\": 3,\n    \"match\": {\n        \"id\": 0,\n        \"turnos\": 12,\n        \"position_1\": 6,\n        \"position_2\": 3,\n        \"position_3\": 3,\n        \"createdAt\": \"2022-11-08T01:28:29.975Z\",\n        \"updatedAt\": \"2022-11-08T02:06:18.225Z\",\n        \"player_1\": 100,\n        \"player_2\": 101,\n        \"player_3\": 102,\n        \"current_player\": 100\n    },\n    \"player1\": {\n        \"id\": 100,\n        \"nombre\": \"pedro\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER1\",\n        \"email\": \"ian@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T.juQHa.qJvBHXD3JDNBB.OiBcF6PaaIf.H2w8Ljac6UKtg4EhbSi\",\n        \"delegacion\": \"Brasil\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"deporte\": {\n        \"id\": 6,\n        \"deporte\": \"atletismo\",\n        \"fuerza\": false,\n        \"velocidad\": true,\n        \"resistencia\": true,\n        \"coordinacion\": true,\n        \"inteligencia\": false,\n        \"equilibrio\": false,\n        \"total\": 5,\n        \"createdAt\": \"2022-11-08T01:28:29.973Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.973Z\"\n    },\n    \"playerStats\": {\n        \"id\": 1,\n        \"player_id\": 100,\n        \"fuerza\": 4,\n        \"velocidad\": 1,\n        \"resistencia\": -1,\n        \"coordinacion\": 1,\n        \"inteligencia\": 1,\n        \"equilibrio\": 1,\n        \"puntos_competencia\": 3,\n        \"createdAt\": \"2022-11-08T01:28:29.978Z\",\n        \"updatedAt\": \"2022-11-08T02:06:35.702Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Retroceder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/matches/retroceder",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"matches",
+								"retroceder"
+							]
+						},
+						"description": "Disminuye en 1 la posición del jugador correspondiente. Retorna la instancia de la partida: **'Match'.**"
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/retroceder",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										"retroceder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "220"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 02:10:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"match\": {\n        \"id\": 0,\n        \"turnos\": 16,\n        \"position_1\": 6,\n        \"position_2\": 5,\n        \"position_3\": 12,\n        \"createdAt\": \"2022-11-08T01:28:29.975Z\",\n        \"updatedAt\": \"2022-11-08T02:10:38.915Z\",\n        \"player_1\": 100,\n        \"player_2\": 101,\n        \"player_3\": 102,\n        \"current_player\": 101\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Lanzar Dado Versus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/matches/lanzardadoversus",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"matches",
+								"lanzardadoversus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Status: 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/matches/lanzardadoversus",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"matches",
+										"lanzardadoversus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1262"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Nov 2022 03:00:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resultado\": \"visita\",\n    \"sumap1\": 7,\n    \"sumap2\": 10,\n    \"sumap3\": 18,\n    \"currentPlayer\": {\n        \"id\": 101,\n        \"nombre\": \"fernando\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER2\",\n        \"email\": \"fgonz@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$GGKYMrkTVgsJAvcwd4vAo.Et7PzLEE69si2vfERjIylTD47Rk0B0G\",\n        \"delegacion\": \"EEUU\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"player1\": {\n        \"id\": 100,\n        \"nombre\": \"pedro\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER1\",\n        \"email\": \"ian@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T.juQHa.qJvBHXD3JDNBB.OiBcF6PaaIf.H2w8Ljac6UKtg4EhbSi\",\n        \"delegacion\": \"Brasil\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"player2\": {\n        \"id\": 101,\n        \"nombre\": \"fernando\",\n        \"apellido\": \"gonzalez\",\n        \"nickname\": \"PLAYER2\",\n        \"email\": \"fgonz@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$GGKYMrkTVgsJAvcwd4vAo.Et7PzLEE69si2vfERjIylTD47Rk0B0G\",\n        \"delegacion\": \"EEUU\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    },\n    \"player3\": {\n        \"id\": 102,\n        \"nombre\": \"nick\",\n        \"apellido\": \"valenzuela\",\n        \"nickname\": \"PLAYER3\",\n        \"email\": \"nvchorri@gmail.com\",\n        \"hash_contrasena\": \"$2a$05$T4yNX0F/CzL4GAJXMWa2HuUJckIBtCMDgkZJ5pb/Ik9IN3DxfQxKG\",\n        \"delegacion\": \"Corea\",\n        \"puntos\": 0,\n        \"createdAt\": \"2022-11-08T01:28:29.971Z\",\n        \"updatedAt\": \"2022-11-08T01:28:29.971Z\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "Los Endpoints de Matches manejan la lógica del una partida del Juego.\n\nLa forma de Jugar es con **Happy Path:** Hay que Tirar Dado -> Actualizar Tablero -> Terminar Turno **Siempre**.\n\n### Status: 401\n\nEste error ocurre en los diversos endpoints cuando se intenta realizar una acción en el momento que no corresponde, a excepción del **happy path** que debe seguir el usuario como regla."
+		},
+		{
+			"name": "Protected",
+			"item": [
+				{
+					"name": "Match Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"description": "Por implementar (ADMIN)"
+					},
+					"response": []
+				}
+			],
+			"description": "Protege las rutas de la API, para que no se eliminen partidas por accidente o sin tener los permisos. Esto tendría consecuencias negativas para la base de datos de la app."
+		}
+	]
+}
