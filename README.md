@@ -6,3 +6,9 @@ The tecnologies i used are:
 - NodeJs with Koa in the backend
 - Postgresql database
 - Sequelize as ORM
+
+## The project
+
+The project consisted on a boardgame, like a race in the board with sports tematic.
+
+
